@@ -17,16 +17,23 @@ This implementation follows **official FIDE chess rules** including all special 
 
 ### **GUI Version (Recommended):**
 ```bash
-javac *.java
-java ChessBoardGUI
+javac -d out src/*.java
+java -cp out ChessBoardGUI
 ```
 **Or double-click:** `run-gui.bat`
 
 ### **Console Version:**
 ```bash
-java ChessGame
+javac -d out src/*.java
+java -cp out ChessGame
 ```
 **Or double-click:** `run-console.bat`
+
+### **Using IntelliJ IDEA:**
+1. Open the project folder in IntelliJ IDEA
+2. IntelliJ will automatically detect the project structure
+3. Right-click on `ChessBoardGUI.java` or `ChessGame.java` in the `src` folder
+4. Select "Run 'ChessBoardGUI.main()'" or "Run 'ChessGame.main()'"
 
 ## Project Overview
 
@@ -85,32 +92,51 @@ This is a fully functional chess game with **professional GUI** implemented in J
 ## Project Structure
 
 ```
-├── ChessGame.java      # Main class with presentation layer
-├── Game.java           # Game engine with logic layer
-├── Board.java          # Board representation using HashMap
-├── Player.java         # Player class with ArrayList of pieces
-├── Move.java           # Move record for history/undo/redo
-├── Position.java       # Position class (algebraic notation)
-├── Piece.java          # Abstract base class for pieces
-├── King.java           # King piece implementation
-├── Queen.java          # Queen piece implementation
-├── Rook.java           # Rook piece implementation
-├── Bishop.java         # Bishop piece implementation
-├── Knight.java         # Knight piece implementation
-└── Pawn.java           # Pawn piece implementation
+Chess/
+├── src/
+│   ├── ChessGame.java      # Main class with console interface
+│   ├── ChessBoardGUI.java  # GUI main class
+│   ├── Game.java           # Game engine with logic layer
+│   ├── Board.java          # Board representation using HashMap
+│   ├── Player.java         # Player class with ArrayList of pieces
+│   ├── Move.java           # Move record for history/undo/redo
+│   ├── Position.java       # Position class (algebraic notation)
+│   ├── Piece.java          # Abstract base class for pieces
+│   ├── King.java           # King piece implementation
+│   ├── Queen.java          # Queen piece implementation
+│   ├── Rook.java           # Rook piece implementation
+│   ├── Bishop.java         # Bishop piece implementation
+│   ├── Knight.java         # Knight piece implementation
+│   └── Pawn.java           # Pawn piece implementation
+├── out/                    # Compiled class files (generated)
+├── compile.bat            # Compilation script
+├── run-gui.bat            # Run GUI version
+├── run-console.bat        # Run console version
+├── Chess.iml              # IntelliJ module file
+└── README.md              # This file
 ```
 
 ## How to Compile and Run
 
 ### Compile all Java files:
 ```bash
-javac *.java
+javac -d out src/*.java
 ```
 
-### Run the game:
+### Run the GUI version:
 ```bash
-java ChessGame
+java -cp out ChessBoardGUI
 ```
+
+### Run the console version:
+```bash
+java -cp out ChessGame
+```
+
+### Or use the provided batch files:
+- Double-click `compile.bat` to compile
+- Double-click `run-gui.bat` to run GUI version
+- Double-click `run-console.bat` to run console version
 
 ## How to Play
 

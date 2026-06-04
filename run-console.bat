@@ -1,5 +1,5 @@
 @echo off
 echo Starting Chess Game in Console Mode...
 echo.
-java ChessGame
+java -cp out ChessGame
 pause
